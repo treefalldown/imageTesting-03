@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AR.js A-Frame Location-based</title>
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
+        <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+    </head>
+
+    <body>
+        <a-scene vr-mode-ui='enabled: false'
+                 arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
+                 renderer='antialias: true; alpha: true'>
+
+            <!--            <a-assets timeout="10000">-->
+            <a-assets timeout="10000">
+                <img id="Coles_Entrance" src="assets/Coles_Entrance.jpg">
+                <img id="Coles_Rear" src="assets/Coles_Rear.jpg">
+
+                <!--
+<a-asset-item id="tree-obj" src="assets/scans_3D/textured.obj"></a-asset-item>
+<a-asset-item id="tree-mtl" src="assets/scans_3D/textured.mtl"> </a-asset-item>
+-->
+            </a-assets>
+
+            <!--Place a box at a specific gps location-->
+            <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
+            <a-entity material='color: red'
+                      geometry='primitive: box'
+                      gps-new-entity-place="latitude: 42.44460; longitude: -76.50416"
+                      scale="30 30 30">
+            </a-entity>
+
+
+
+            <!--Place an image on the left-->
+            <a-image src="#Coles_Entrance"
+                     position='-15 0 -15'
+                     scale="10 10 10">                
+            </a-image>
+
+
+            <!--Place an image in the middle-->
+            <!--Add a transparency-->
+            <a-image src="#Coles_Entrance"
+                     position='0 0 -15'
+                     scale="10 10 10"
+                     transparent="true"
+                     animation="property: material.opacity; from: 0.2; to: 0.8; loop: true; dir: alternate; dur: 10000">                
+            </a-image>
+
+            <a-image src="#Coles_Entrance"
+                     position='0 0 -16'
+                     scale="10 10 10"
+                     transparent="true"
+                     animation="property: material.opacity; from: 0.2; to: 1; loop: true; dir: alternate; dur: 5000">                
+            </a-image>
+            
+            
+            <a-image src="#Coles_Entrance"
+                     position='0 0 -17'
+                     scale="10 10 10"
+                     transparent="true"
+                     animation="property: material.opacity; from: 0.2; to: 0.3; loop: true; dir: alternate; dur: 5000">                
+            </a-image>
+            
+            <a-image src="#Coles_Entrance"
+                     position='0 0 -18'
+                     scale="10 10 10"
+                     transparent="true"
+                     animation="property: material.opacity; from: 0.2; to: 0.3; loop: true; dir: alternate; dur: 5000">                
+            </a-image>
+            
+            
+            
+            <!-- Basic box to signal location of image-->
+            <a-box color="black"
+                   depth="10"
+                   height="10"
+                   width="10"
+                   position='0 60 -15'
+                   animation="property: rotation; from: 0 360; loop: true; dur: 20000"
+                   animation__rotation="property: material.opacity; from: 0.8; to: 0.1; loop: true; dir: alternate; dur: 5000"
+
+                   >
+
+            </a-box>
+
+
+            <!--Place an image in the right-->
+            <!--Animate a transparency fading-->
+            <a-image src="#Coles_Entrance"
+                     position='15 0 -15'
+                     scale="10 10 10"
+                     transparent="true"
+                     alphaTest="0.5"
+                     side="double"
+                     blending="multiply"
+                     animation="property: material.opacity; from: 0.9; to: 0.6; loop: true; dir: alternate; dur: 5000">
+            </a-image>
+
+            <a-image src="#Coles_Entrance"
+                     position='15 0 -16'
+                     scale="10 10 10"
+                     transparent="true"
+                     alphaTest="0.5"
+                     animation="property: material.opacity; from: 0.9; to: 0.4; loop: true; dir: alternate; dur: 5000">
+            </a-image>
+
+
+
+
+
+
+            <!-- Basic box to signal location of image-->
+            <a-box color="black"
+                   depth="10"
+                   height="10"
+                   width="10"
+                   position='15 60 -15'
+                   animation="property: material.opacity; from: 0.8; to: 0.1; loop: true; dir: alternate; dur: 5000"
+                   >
+            </a-box>
+
+            <!--Place an image at the following GPS coordinates: 42.44460, -78.84714808465061-->
+            <!--
+<a-image src="#Coles_Entrance"
+gps-new-entity-place="latitude: 42.925262364731836; longitude: -76.50416"
+scale="10 10 10">                
+</a-image>
+-->
+
+
+
+            <!--            Rear GPS: 42.92504188320984, -78.84744693310255-->
+            <!--
+<a-image src="#Coles_Rear"
+gps-new-entity-place="latitude: 42.92504188320984; longitude: -78.84744693310255"
+scale="10 10 10">
+</a-image>
+-->
+        </a-scene>
+    </body>
+</html>
